@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>
+            prototype
+        </title>
+    </head>
+    <body>
+        <script>
+            // IMP prototype is list of methods that can be applied in anything 
+            a = [1,2,3,4,5]
+            console.log(a)
+            console.log(a.__proto__)// list of prototypes // "a.__proto__" is an object('that has list of methods within it '), so it will have another prototype for that object
+
+            class Details{
+                constructor(name , age ){
+                    this.name = name 
+                    this.age = age 
+                }
+                hello(){
+                    console.log(`greeting ${this.name}, you are ${this.age} years old`)
+                }
+            }
+            detailsObject = new Details('chandra' , 25)
+            console.log(detailsObject)
+            //IMP NOTE if a method is in class .. its prototype (ie. it will not be copied for every instance)
+            obj1= {
+                name:'helo',
+                age: 12,
+                hello(){
+                    console.log('hello')
+                }
+            }
+            console.log(obj1)
+            
+        </script>
+    </body>
+</html>

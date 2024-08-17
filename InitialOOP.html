@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>
+            OOP
+        </title>
+
+    </head>
+    <body>
+        <script>
+            class hello{
+                constructor(name,age){
+                    this.name = name
+                    this.age = age
+                    
+                }
+                sayHello(){ //IMP methods are accesseble outside the scope of class 
+                    console.log('hello', this.name, this.age )
+                }
+
+            }
+            let obj1 = new hello('chandra', '20')
+            console.log(obj1)
+            obj1.sayHello()
+            //now lets try with functions 
+            function helloe(name, age){
+                this.name = name 
+                this.age = age 
+                this.sayHello = function (){ //IMP this should be declared with this pointer to be able to access outside function scope 
+                    console.log(name,age)
+                }
+
+            }
+            let obj2 = new helloe('chan',2)
+            console.log(obj2)
+            obj2.sayHello()
+            //example copy 
+            
+
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Hello</title>
+    </head>
+    <body>
+        <h1></h1>
+        <script>
+            Function
+            //In JavaScript, when you define a function, you are actually creating an instance of the Function object.
+            function add(a,b){ //here function is instance of Function object You can treat it as instance of object 
+                return a+b
+            }
+            add.description = 'it adds things'
+            console.log(add.description) //a veriable is added in function object 
+
+            add.describe = function(){
+                return 'i am description and i do addition '
+            }// here  basically you are adding or pushing a method name 'describe' in add (where add is instance of add function )// get more information when you are ready
+            console.log(add.describe()) 
+            //example for built in methods for function instance of Function object 
+            //call method
+            let product = {
+                name: 'paint',
+                priceCents: 2500,
+                priceInDollers: function (){
+                    return (2500/100)
+                }
+            }
+            function gstManipulate(gstPercentage){
+                this.gstPercentage = gstPercentage
+          
+            }
+            function calculateTax(gstPercentage, shipping){
+                let gstAmount = 0
+                gstManipulate.call(this, gstPercentage)
+                let priceInDollers = this.priceInDollers() // you used the product object's value as thisArg as defined below 
+
+                gstAmount = (priceInDollers*gstPercentage)/100
+                const total =(shipping/100)+gstAmount +priceInDollers
+                console.log('Name = ', this.name, 'Total price = ', total)
+            }
+            calculateTax.call(product,10,4500) // passing in this format functionname.call(thisArg,arg1,arg2....) where thisArg means an object or whatever that you will be using as this.(keyname) inside the function 
+            
+            function productName(){
+
+                console.log('hello : ', this.name);
+
+            }
+            productName(product)
+
+            function sum(a,b,c){
+                return ('product name' , this.name , 'sum' , a+b+c)
+                
+            }
+            number = [1,2,3]
+            console.log(sum.apply(product,number ))
+
+            function animal(name){
+                this.name = name
+            }
+            function Dog(name,breed){
+                animal.call(this,name)
+                function hello(){
+                    console.log('heee')
+                }
+                this.hello2 = function(){
+                    console.log('heee2')
+                }
+             
+                this.breed = breed 
+            }
+            myDog = new Dog('rex', 'golden')//here basically you are creating an object of dog function 
+            console.log(myDog) //when you console.log myDog(object of Dog) then you will get {name:'rex',breed:'golden'} ; basically it will create object of that function with elements and methods within that function
+            console.log(myDog.name)
+            console.log(myDog.breed)
+            //myDog.hello() This is incorrect ...  that you cannot access function unless its formated as in an object 
+            myDog.hello2()
+         
+
+
+//rough
+        //     function name(){
+        //         let name1 = 'chandra'
+                
+        //     }
+        //  let firstname = 'srijan'
+        //     let person = {
+        //         firstname:'chandra',
+        //         lastname:'dhungana',
+        //         sayHello: function(){
+        //             console.log(`myname is ${this.firstname}`)
+        //         }
+        //     }
+        //     person.sayHello()
+
+        </script>
+    </body>
+</html>

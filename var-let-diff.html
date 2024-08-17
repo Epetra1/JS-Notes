@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>var-let-diff</title>
+    </head>
+    <body>
+        <h1>hello</h1>
+        <script>
+            //IMP difference is var doesnot follow scope rule, let does. IE var can be accessed even outside of scope, expect function scope
+            function product(){
+                var name = 'tshirt'
+            }
+            product()
+            console.log(name)
+            if(true){
+                var address = 'auburn'
+            }
+            console.log(address)
+            
+        </script>
+    </body>
+</html>

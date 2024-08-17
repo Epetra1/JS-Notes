@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>
+            litcode questions for array 
+        </title>
+    </head>
+    <body>
+        <script>
+            //  NOTE Litcode: Check for Pair with Given Sum
+
+            // Write a function hasPairWithSum(arr, sum) that checks if there exists a pair of elements in the array whose sum is equal to the given sum.
+            // Example: Input: arr = [1, 2, 3, 9], sum = 8 Output: false
+            function sum(array, sum){
+                set = new Set()
+                for(let num of array){
+                    if(set.has(sum - num)){
+                        return true
+                    }
+                    set.add(num)
+                }
+                return false 
+            }
+            a = [1,2,3,4]
+            console.log(sum(a,4))
+            //..............
+            //IMP SET is collection of unique elements .. if you try to add same element it will ignore it 
+            //SET is a built in class that has different methods such as .add,.delete,.has and all
+            array = [1,2,2,3,3,4,4]
+            arrayRemovingDuplicate = new Set(array)
+            console.log(arrayRemovingDuplicate)
+            arrayRemovingDuplicate.add('oe')
+            arrayRemovingDuplicate.delete('oe')
+            arrayRemovingDuplicate.add(1) // this will not add any element since 1 already exists 
+            if(arrayRemovingDuplicate.has('oe')){
+                console.log('oe this is not number ..   IMPOSTER ')
+            }
+            //NOTE These are methods of Set, but remember these are not like forEach ... 
+            for(let num of arrayRemovingDuplicate.keys()){
+                console.log(num)
+            }
+            //UNDER Production Example 
+            class uniqueIdentifier {
+                constructor(){
+                    this.uniqueUser = new Set()
+                }
+                
+                setUser=(user)=>{
+                    
+                    this.uniqueUser.add(user)
+                }
+                reset = () => {
+                    this.uniqueUser.clear()
+                }
+
+            }
+            let Test = new uniqueIdentifier()
+            Test.setUser('chandra')
+            Test.setUser('supereme')
+            Test.setUser('chandra')
+            Test.setUser('samrak')
+            console.log('total unique users in your website '+Test.uniqueUser.size)// this will print total number of unique users who visited your website 
+            
+
+
+
+
+
+        </script>
+    </body>
+</html>

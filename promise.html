@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>promisies</title>
+    </head>
+    <body>
+        <input type = 'text' class = 'hello'> <button class = 'submit'> Submit </button>
+        <script>
+            //NOTE promise is a class that has different methods called then , catch , finally.... 
+            abc = document.querySelector('.submit')
+            abc.addEventListener('click',(event)=>{
+                value = document.querySelector('.hello').value
+            let mypromise = new Promise((resolve,reject)=>{// syntax of promise and resolve recect .. all of it is predefined 
+                if(value === 'hello'){
+                    resolve('hey there')
+                }
+                else{
+                    reject('you are not welcome')
+                }
+            })
+            mypromise
+            .then((result)=>{
+                console.log(result)
+            },(error)=>{
+                console.log(error)
+            })
+            .catch((error)=>{
+                console.log('this is catch ... error')
+            })
+            //IMP IMP IMP//
+            //if you just use mypromise.then(()=>{ console.log(' i am successful ')}) .. ths works tooo and to catch error you can use mypromise.catcha(()=>{console.log(i am unsuccessful)})
+
+        })
+            // mypromise
+            // .then((result)=>{//IMP then will be catching whats in resolve and passing it as parameter to function . in this case ('result')
+            //     console.log(result)
+            // })
+            // .catch((error)=>{//IMP catch will be passing value of reject in the parameter, in this case error
+            //     console.log(error)
+            // })})
+
+            //NOTE async function always return a promise .. when you return something .. it is wraped in resolve and if its error then it will be wrapped in reject but it returns promise always 
+        async function sayHelloAfterDelay() {
+            // Simulate a delay using a loop, but the function itself doesn't need to create a Promise
+            console.log("Starting...");
+
+            // Simulate some asynchronous work with a delay
+            for (let i = 0; i < 1e9; i++) {}  // This loop just simulates a delay (not true async) // this is syncronous 
+
+            console.log("Hello after delay!");
+
+            return "Done!"; // This value is automatically wrapped in a Promise
+        }
+
+        // Call the function and handle the automatically returned Promise
+        sayHelloAfterDelay().then((message) => {
+            console.log(message);  // Output: "Done!"
+            console.log("This is executed after the delay");
+        });
+        //NOTE usually when you fetch a data .. it returns a promise //
+        async function fetchFunction(){
+            try{
+                const data = await fetch('xyz.com') //IMP fetch is by default asyncronous 
+                const dataJson = await data.json()
+            }
+            catch{ //if you catch error here and asign something of there is any error here .. then fetchFunction() itself will not have any error at all ... since function always returns something.either try or catch
+                console.log('hello')
+            }
+        }
+        fetchFunction()// unless above function doesnot complete fetchins .. these part of code will not run 
+        .then(()=>{
+            console.log('whatever you do in this function will run only if the above functions successfully fetches and changes data to json otherwise catch will run')
+        })
+        .catch(()=>{ //this will never run since fetchFunction will never have (reject).. it will either return try( if fetch is successful ) or catch (if try fails )
+            console.log(' if function cannot fetch and serialize data .. i will run')
+        })
+
+        //NOTE methods of promises // 
+    //     async function runTasks() {
+    //     const [result1, result2] = await Promise.all([taskOne(), taskTwo()]); //IMP this line basically waits for both function to reutrn their respective values and then goes forward
+    //     console.log(result1);
+    //     console.log(result2);
+    // }
+
+    async function firstTask() {
+    return "First Task Done";
+}
+
+function secondTask() {
+    try{
+        return new Promise((resolve, reject) => {
+        reject("Second Task Failed");
+    });
+        
+    }
+    catch{
+        console.log("Caught error:", reject());
+
+    }
+    
+}
+
+function thirdTask(result) {
+    return `Third Task Done after ${result}`;
+}
+
+firstTask()
+    .then(secondTask)
+    .then(thirdTask)
+    .then((finalResult) => {
+        console.log(finalResult);
+    })
+    .catch((error) => {
+        console.log("Caught error:", error);
+    });
+        </script>
+    </body>
+</html>

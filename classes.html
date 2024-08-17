@@ -1,0 +1,50 @@
+<html>
+    <head>
+     <title>class
+
+    </title>
+</head>
+<body>
+    <script>
+        class shape{
+            constructor(name, side){
+                this.name = name
+                this.sides = side
+            }
+            describe(){
+                return(`A ${this.name} with ${this.sides} sides.`)
+            }
+            hello(){
+                console.log('hello is called')
+            }
+        }
+        class triangle extends shape{
+            
+            constructor(sideArray){
+                super('triangle',3)
+                this.sideArray = sideArray
+                
+            }
+            perimeter(){
+                return this.sideArray.reduce((acc,cur)=>acc + cur, 0)
+            }
+            heelo = super.hello()
+        }
+        class square extends shape{
+            constructor(len){
+                super('square',3)
+                this.len = len
+                
+            }
+            area(){
+                return Number(len*len)
+            }
+        }
+        let train = new triangle([1,2,3])
+        console.log(train.name)
+        console.log(train.perimeter())
+      
+    </script>
+</body>
+
+</html>

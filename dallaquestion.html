@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Characters by Coordinates</title>
+    <style>
+        #content {
+            font-family: monospace; /* Use a monospaced font to preserve spacing */
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let characters = ['█', '█', '█', '▀', '▀', '▀', '▀', '▀'];
+        let xcoordinate = [0, 0, 0, 1, 1, 2, 2, 3];
+        let ycoordinate = [0, 1, 2, 1, 2, 1, 2, 2];
+
+        // Combine the arrays into an array of objects
+        let combined = characters.map((char, index) => {
+            return {
+                char: char,
+                x: xcoordinate[index],
+                y: ycoordinate[index]
+            };
+        });
+
+        // Sort the array of objects by x and then by y
+        combined.sort((a, b) => {
+            if (a.x === b.x) {
+                return a.y - b.y;
+            } else {
+                return a.x - b.x;
+            }
+        });
+
+        // Create a grid to display the sorted characters
+        let maxX = Math.max(...xcoordinate);
+        let maxY = Math.max(...ycoordinate);
+        let grid = Array.from({ length: maxX + 1 }, () => Array(maxY + 1).fill(' '));
+
+        combined.forEach(item => {
+            grid[item.x][item.y] = item.char;
+        });
+
+        // Convert the grid to a string
+        let result = grid.map(row => row.join('')).join('\n');
+
+        // Log the result
+        console.log(result);
+
+        // Display the result on the web page
+        document.write('<h2>Sorted Characters by Coordinates</h2>');
+        document.write('<pre id="content">' + result + '</pre>');
+    </script>
+    
+</body>
+</html>

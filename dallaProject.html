@@ -1,0 +1,47 @@
+<heml>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <button class="button">Button</button>
+        <p class = 'hello'></p><p class= 'heeel'></p>
+        <script>
+            let count = 0
+            let previousEvent;
+            let Tinstance; 
+            let countHundred= false
+            document.querySelector('.button').addEventListener('click',(event)=>{
+
+                console.log(event)
+                count ++
+                function onHunered(){
+                    document.querySelector('.hello').innerHTML = 'You want to keep playing ? <button class="yes" onclick ="addContenta()">Yes</button><button class="no" onclick ="reset()">No</button>'
+                }
+                
+                if(count >= 100){
+                        onHunered()
+                    }else{
+                        addContent()
+                    }
+                function addContent(){
+                    setTimeout(function(){
+                    if(perviousEvent===event){
+                        reset()
+                    }
+                },3000)
+                    document.querySelector('.hello').innerHTML = `count = ${count}`
+                        perviousEvent = event;
+                    }
+
+            })
+            function reset(){
+                count = 0;
+                document.querySelector('.hello').innerHTML = `count = ${count}`
+            }
+            
+
+        </script>
+    </body>
+</heml>

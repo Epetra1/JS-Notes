@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>OOP-this</title>
+    </head>
+    <body>
+        <script>
+            //basically without this, the verialble is just within the function or the scope but if you use this then you can access it 
+            //from outside by creating an object of that function 
+            //Example:
+            function greeting(){
+                name = 'chandra';// IMP This will be global veriable since we havent used let or var 
+                console.log('Hello ! ', name)
+            }
+            greeting()
+            //the name of above function has no way to be accessed outside scope 
+            //using this 
+            function greeting2(){
+                this.name = 'sandesh'
+                console.log('Hello ! ', this.name)
+            }
+            sandeshGreeting = new greeting2()//here you can create object (Output is : {name:'sandesh'})
+            console.log('Hello ! ', sandeshGreeting.name)//and access that name value outeside by creating object like above
+            obj ={
+                name: 'name',
+                greet: function(){
+                    console.log('hello ', name)
+                }
+            }
+            obj.greet()// here since we havent pointed name with this prointer ... gloval veriable will be assigned ie 'chandra'
+            // now using this pointer 
+            obj1 ={
+                name: 'name',
+                greet: function(){
+                    console.log('hello ', obj1.name) // NOTE: Here This refres to obj1 its like this.name is same as obj1.name 
+                }
+            }
+            obj1.greet() // this will print 'name' since we have pointed with this pointer
+            //UNDER : as far as i have understood , this refrs to function name or object name or class name like this. meaning FunctionName.
+            function abc(){
+                firstname = 'oee';
+            }
+            abc()
+            console.log(firstname)
+
+            //lets try to use same name for verialbles  
+            function hotel(){
+                let address = 'Aurburn'
+                console.log(this.address) // IMP this will return australia over auburn since its passed by call mehod in line 53 :
+            }
+            hotelObject = {
+                address:'Australia'
+            }
+            hotel.call(hotelObject) // IMP output will be australia 
+            console.log(isNaN('dfef'))
+
+
+
+        
+
+
+            
+            
+            
+        </script>
+    </body>
+</html> 
