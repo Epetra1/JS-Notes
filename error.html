@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>
+            OOP
+        </title>
+
+    </head>
+    <body>
+        <script>
+            let error = new Error('hello i am error')
+            console.log(error.message)
+            throw new Error('o mg you catched me ') /// this will show actual error in console and program will stop imidiately
+            try{
+                console.log('hello')
+                throw new Error('i am error in try {}')
+
+            }
+            catch(error){
+                console.log(error.message)
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
