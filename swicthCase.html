@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            //simple example
+            let day = 'sunday';
+            switch(day){
+                case('sunday'):
+                    console.log(`morning its Sunday`)
+                    break;
+                case('monday'):
+                console.log('morning its modday')
+                break;
+                default:
+                    console.log('morning only ')
+                    break;
+            }
+            //FALLS THROUGH : if you dont use break then when the statement satisfies, all the below case's code will be executed 
+            let billions = 2;
+            switch(billions){
+                case 3:
+                    console.log('you can buy a house')
+                    
+                case 2:
+                    console.log('you can buy a jet')
+                case 1:
+                    console.log('you can buy a car')
+                default:
+                    console.log('you dont need to buy anything ')
+            }
+
+
+        </script>
+    </body>
+</html>
