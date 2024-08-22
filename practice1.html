@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>imaginary practice</title>
+        <style>
+            .block{
+                display : none;
+            }
+
+        </style>
+    </head>
+    <body>
+        <p class = 'js-message'></p>
+        <div class = 'js-authentication'>
+        <input type='text' placeholder = 'username' class = 'js-username'>
+        <input type="text" placeholder = 'password' class = 'js-password'>
+        <p><button class = 'js-login'>login</button><button class = 'js-register'>register</button></p>
+    </div>
+    <div class="js-logedin block">
+        
+        <input type = 'number' placeholder = 'deposite' class = 'js-deposite'>
+        <input type = 'number' placeholder = 'withdraw' class = 'js-withdraw'>
+        <button class = 'js-checkBalance' >Check balance</button>
+        
+
+    </div>
+
+        <script>
+            class bank{
+                constructor(username, password){
+                    this.users = []
+                }
+                register(username, password){
+                    this.users.forEach((value)=>{
+                        if(value.username === username){
+                            alert('User already exists')
+                            return
+                        }
+                    })
+                    this.users.push({username:`${username}`, password:`${password}`})
+                    console.log('registered')
+                    console.log(this.users)
+                    return('register')
+
+                }
+                login(username, password){
+                    this.users.forEach((value)=>{
+                        if(value.password === password ){
+                            if(value.username === username){
+                            document.querySelector('.js-message').innerHTML= 'You are logedin'
+                            
+                            return('logedin')
+                            }
+                            else{
+                                document.querySelector('.js-message').innerHTML= 'username doesnot exist .. you want to regiser?'
+                            }
+
+                        }
+                        else{
+                            document.querySelector('js-message').innerHTML = 'username of password dooesnot match .. forgot password?'
+                        }
+
+                    })
+
+                }
+            }
+            class user{
+                constructor(username, password){
+                    this.username = username
+                    this.password = password
+                    this.balance = 0
+                }
+                checkbalance(){
+                    console.log(this.balance)
+                }
+                deposite(amount){
+                    this.balance += Number(amount)
+                    console.log(this.balance)
+
+                }
+                withdraw(amoutn){
+                    this.balance -= Number(amount)
+                }
+            }
+            document.querySelector('.js-login').addEventListener('click', ()=>{
+                bankClass = new bank()
+                let username = document.querySelector('.js-username').value
+                let password = document.querySelector('.js-password').value
+                let login = bankClass.login(username,password)
+                
+                if (login === 'logedin'){
+                    handleLogin(username , pasword)
+                }
+
+            })
+            document.querySelector('.js-register').addEventListener('click', ()=>{
+                bankClass = new bank()
+                let username = document.querySelector('.js-username').value
+                let password = document.querySelector('.js-password').value
+                let register = bankClass.register(username,password)
+                console.log(register)
+                if(register ==='register'){
+                    handleLogin()
+                }
+
+            })
+            function handleLogin(username, password){
+                userClass = new user(username, password)
+                document.querySelector('.js-logedin').classList.remove('block')
+                document.querySelector('.js-deposite').addEventListener('keydown',(event)=>{
+                    if(event.key === 'Enter'){
+                        amount = document.querySelector('.js-deposite').value
+                        userClass.deposite(amount)
+                    }
+                })
+            }
+            
+
+
+
+            
+        </script>
+    </body>
+</html>
