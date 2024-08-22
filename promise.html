@@ -112,6 +112,28 @@ firstTask()
     .catch((error) => {
         console.log("Caught error:", error);
     });
+    //IMP Resolved value form promise is directly passed to then fucntion 
+    function returnPormise(){
+        let abc = true
+        return new Promise((resolve,reject)=>{
+            if(abc){
+                 resolve('mula i am printed')
+            }
+            else{
+             reject('done')
+            }
+
+        })
+    }
+    function print(message){
+        console.log(message)
+
+    }
+    returnPormise()
+    .then(print) // IMP resolve will be passesd as parameter to function you call in .then//
+    .catch(print)//IMP reject will be passed to this function..
+
+
         </script>
     </body>
 </html>

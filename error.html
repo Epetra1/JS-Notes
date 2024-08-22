@@ -9,15 +9,18 @@
         <script>
             let error = new Error('hello i am error')
             console.log(error.message)
-            throw new Error('o mg you catched me ') /// this will show actual error in console and program will stop imidiately
+            // throw new Error('o mg you catched me ') /// this will show actual error in console and program will stop imidiately
             try{
                 console.log('hello')
-                throw new Error('i am error in try {}')
+                throw new Error('i am error in try {}')// this will not stop the program, rather it will sent that error as parameter to catch of that try 
 
             }
             catch(error){
                 console.log(error.message)
+                console.log(error.stack)// stack is like what was the error and when did it occured kind of thing ... 
             }
+
+
 
 
 
