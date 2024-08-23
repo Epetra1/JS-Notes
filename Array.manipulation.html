@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            OOP
+        </title>
+
+    </head>
+    <body>
+        <script>
+        //Array.from
+        console.log(',,,,,,,,,,,,,,,,,,,,,,,,,,,,,,')
+        //IMP Array.form helps you to create an array form arrya like object
+        let obj = {0:'chandra',1:'ujjwal',2 : 'sandesh',length:3} // so basically it should be {index: 'value' ..... , length:x}
+        console.log(Array.from(obj))
+        let arr = [1,2,3,4,5]
+        let arr1 = Array.from({length : 3},(_,id)=>{element=>element*2})
+        console.log(arr1)
+        class details{
+            constructor(id,name,age){
+                this.id = id
+                this.name = name
+                this.age = age 
+            }
+        }
+        let arr2= Array.from({length:3},(_,i)=>new details(i,'chandra',21)) //IMP NOTE this is very usefull tool ... like yo can create array of returned objects from a class ...
+        console.log(new details(1,'a',2))
+        console.log(arr2)
+        console.log(arr2[0].name)
+
+        //Object.values
+        // IMP if you have an object and you wnat to make an array of just the value of it, then use this 
+        let object = {maths: 55, science:80, physics:90}
+        let marksOnly = Object.values(object)
+        let total = marksOnly.reduce((pre,aft)=>pre+aft,0)
+        console.log('percentage is ', total/marksOnly.length)
+
+
+
+
+
+        </script>
+    </body>
+</html>
