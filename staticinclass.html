@@ -1,0 +1,17 @@
+<html>
+    <head><title>staticClass</title></head>
+    <body>
+        <script>
+            class bank{
+                static hello(){
+                    return('hello there i am bank and i can be accessed without initializing')
+                }
+                greet(){
+                    return('i cannot be accessed without initializing')
+                }
+            }
+            console.log(bank.hello())
+            console.log(bank.greet())// this will thorw an error since that function is not static 
+        </script>
+    </body>
+</html>

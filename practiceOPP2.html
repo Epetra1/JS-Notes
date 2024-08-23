@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title> Practice OOP 2</title>
+    </head>
+    <body>
+        <script>
+            class Vehicle{
+                constructor(type,price,pslot){
+                    this.type= type 
+                    this.price = price
+                    this.pslot =pslot
+                    this.vehicle = []
+                }
+                park(){
+                    if(this.pslot <= 0){
+                        console.log(`i am afraid we dont have parking left for ${this.type}`)
+                        return true
+
+                    }
+                    else{
+                        console.log(`this ${this.type} parked`)
+                        this.pslot -=  1
+                        return false
+                    }
+                }
+            }
+            
+
+            
+            class car extends Vehicle{
+                constructor(){
+                    super('car',50,slot)
+                    this.carNumber = carNumber
+                    this.parked = false
+                }
+                park(){
+                    if (this.vehicle.find(this.carNumber)){
+                        console.log('this car already exists')
+                    }
+                    else{
+                        this.vehicle.push({cars: this.carNumber})
+                    }
+                }
+
+
+
+            }
+
+
+        </script>
+    </body>
+</html>
