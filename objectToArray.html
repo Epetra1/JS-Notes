@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>
+            OOP
+        </title>
+
+    </head>
+    <body>
+        <script>
+
+        //Object.values
+        // IMP if you have an object and you wnat to make an array of just the value of it, then use this 
+        let object = {maths: 55, science:80, physics:90}
+        let marksOnly = Object.values(object)
+        let total = marksOnly.reduce((pre,aft)=>pre+aft,0)
+        console.log('percentage is ', total/marksOnly.length)
+        //Object.keys
+        //IMP if you have an object and you want to make an array of keys then
+        let object2 = {maths: 55, science:80, physics:90}
+        let subjects = Object.keys(object2)
+        console.log(subjects)
+
+
+        </script>
+    </body>
+</html>

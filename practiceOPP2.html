@@ -4,47 +4,44 @@
     </head>
     <body>
         <script>
-            class Vehicle{
-                constructor(type,price,pslot){
-                    this.type= type 
-                    this.price = price
-                    this.pslot =pslot
-                    this.vehicle = []
+            class student{
+                constructor(name,id){
+                    this.name = name
+                    this.id = id
+                    this.subjects = {maths : 25}
                 }
-                park(){
-                    if(this.pslot <= 0){
-                        console.log(`i am afraid we dont have parking left for ${this.type}`)
-                        return true
+                addSubject(name, marks){
+                    find = Object.keys(this.subjects).find((value)=>value===name)
+                    if(!find){
+                        this.subjects[name] = marks
+                    }
+                    console.log(this.subjects)
 
-                    }
-                    else{
-                        console.log(`this ${this.type} parked`)
-                        this.pslot -=  1
-                        return false
-                    }
                 }
-            }
-            
-
-            
-            class car extends Vehicle{
-                constructor(){
-                    super('car',50,slot)
-                    this.carNumber = carNumber
-                    this.parked = false
+                averageGrade(){
+                    let marks =Object.values(this.subjects)
+                    let total = marks.reduce((a,b)=>a+b,0)
+                    let average = (total/marks.length).toFixed(2)
+                    console.log(average)
+                    return(average)
                 }
-                park(){
-                    if (this.vehicle.find(this.carNumber)){
-                        console.log('this car already exists')
+                printReport(){
+                    console.log(`Report of ${this.name}, Student ID : ${this.id}`)
+                    for(const subject in this.subjects){
+                        console.log(`${subject} => ${this.subjects[subject]}`)
                     }
-                    else{
-                        this.vehicle.push({cars: this.carNumber})
-                    }
+                    console.log(`Percentage = ${this.averageGrade()}`)
+
                 }
-
-
 
             }
+
+            abc = new student('chandra', 1)
+            abc.addSubject('science', 2)
+            abc.addSubject('anup', 5)
+            abc.averageGrade()
+            abc.printReport()
+            
 
 
         </script>
