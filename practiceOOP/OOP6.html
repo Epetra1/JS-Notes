@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>OOP6</title>
+    </head>
+    <body>
+        <script>
+            class Library{
+                constructor(title, author,ISBN){
+                    this.title = title
+                    this.author = author
+                    this.ISBN = ISBN
+                    this.canBorrow = true
+                }
+            }
+            class regularBook extends Library{
+                constructor(title, author,ISBN){
+                    super(title, author,ISBN)
+                    this.borrowTime = 14
+                }
+                borrowStatus(){
+                    
+                }
+
+            }
+        </script>
+    </body>
+</html>
