@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>imaginary practice</title>
+        <style>
+            .block{
+                display : none;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+            class Book{
+                constructor(name, id ){
+                    this.name = name
+                    this.id = id 
+                    this.available = true
+                }
+                checkout(){
+                    this.available = false
+                    console.log('Checkout Successful') 
+                }
+                return(){
+                    this.availability = true
+                    console.log('Successfully returend')
+                }
+                checkAvailability(){
+                    return(this.available)
+                }
+
+            }
+            class Library{
+                constructor(){
+                    this.books = []
+                }
+                findBookById(id){
+                    return this.books.find((book)=>book.id === id)
+                }
+                add(book){
+                    let bookIs = this.findBookById(book.id)
+                    if(bookIs){
+                        console.log(` ${book.name} book is already in Library`)
+                    }
+                    else{
+                        this.books.push(book)
+                        console.log(`${book.name} is registered successfully`)
+                    }
+                }
+                 checkout(book){
+                    let bookIs = this.findBookById(book.id)
+                    if(bookIs){
+                        book.checkout()
+                    }
+                    else{
+                        console.log('this book doesnot exists')
+                    }
+                 }
+                 return(book){
+                    let bookIs = this.findBookById(book.id)
+                    if(!bookIs){
+                        book.return()
+                    }
+                    else{
+                        console.log('book already exists in the library')
+                    }
+                 }
+                 checkAvailability(id){
+                    let bookIs = this.findBookById(id)
+                    if(bookIs.checkAvailability()){
+                        console.log('book is available')
+                        
+                    }
+                    else{
+                        console.log('Book is not availabe in the library')
+                    }
+                 }
+
+            }
+            const book1 = new Book('ATO',1)
+            const book2 = new Book('TAGR',2)
+            const book3 = new Book('Nepali',3)
+
+            library = new Library()
+            library.add(book1)
+            library.add(book2)
+            library.add(book3)
+            library.add(book3)
+            library.checkAvailability(1)
+
+  
+
+
+        </script>
+    </body>
+</html>
