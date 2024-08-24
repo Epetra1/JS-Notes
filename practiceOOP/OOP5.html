@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>OOP5</title>
+    </head>
+    <body>
+        <script>
+            class vehicle{
+                constructor(LPlate, brand, dayRate){
+                    this.LPlate = LPlate
+                    this.brand = brand
+                    this.dayRate = dayRate
+                    this.isRented = false
+                    
+                }
+                // rent(){
+                //     if(!this.isRented){
+                //         this.isRented = true
+                //         console.log('congratulations, you registerd the Vehicle')
+                //     }
+                //     else{
+                //         console.log('its already ranted')
+                //     }
+                // }
+                
+            }
+            class Car extends vehicle {
+                constructor(LPlate, brand, dayRate,dNumber , Gare){
+                    super(LPlate, brand, dayRate)
+                    this.dNumber = dNumber
+                    this.Gare = Gare
+                }
+                rentalCost(days){
+                    return this.dayRate*days
+                }
+            }
+            class Bike extends vehicle{
+                constructor(LPlate, brand, dayRate,type,eType){
+                    super(LPlate, brand, dayRate)
+
+                    this.type = type
+                    this.eType = eType
+                }
+                rentalCost(days){
+                    return this.dayRate*days
+                }
+            }
+            class Truck extends vehicle{
+                constructor(LPlate, brand, dayRate,cargoCop,trailer){
+                    super(LPlate, brand, dayRate)
+                    this.cargoCap = cargoCap
+                    this.trailer = trailer
+                }
+                rentalCost(days){
+                    return this.dayRate*days
+                }
+                
+            }
+            class vehicleList{
+                constructor(){
+                    this.vehicles =[]
+
+                }
+                add(vehicle){
+                    find = this.vehicles.forEach((value,index)=>{
+                        if(value.LPlate===vehicle.LPlate){
+                            return true
+                        }
+                        else{
+                            false
+                        }
+                    })
+                    if(find){
+                        console.log('the velicle already exists')
+                    }
+                    else{
+                        this.vehicles.push(vehicle)
+                        console.log('vehicle added')
+                    }
+                }
+                showVehicles(){
+                    this.vehicles.forEach((value)=>{
+                        console.log(`
+                        Vehicle Brand : ${value.brand}
+                        Vehicle Plate : ${value.LPlate}
+                        `)
+                    
+                        let abc = Object.keys(value)
+                        let cde = Object.values(value)
+                        console.log(Array.from(abc), Array.from(cde))
+                    })
+                    
+                }
+
+
+            }
+            car1 = new Car('123','Masda',60,4,'Manual')
+            car2 = new Car('124','toyota',60,4,'auto')
+            car3 = new Car('125','lambo',160,4,'auto')
+            car4 = new Car('126','audi',90,4,'auto')
+            vehiclelist = new vehicleList()
+            vehiclelist.add(car1)
+            vehiclelist.add(car2)
+            vehiclelist.add(car3)
+            vehiclelist.add(car4)
+            vehiclelist.showVehicles()
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title> Practice OOP 2</title>
+    </head>
+    <body>
+        <script>
+            //IMP see here is why inheritance is important .. because we are declaring (title , description and dificulty ) these veriables in every calsss.. we can make a classs and inherit these veriables by passing 
+            class User{
+                constructor(){
+                    this.title = title
+                    this.description = description
+                    this.difficulty = difficulty
+
+                }
+
+            }
+            class videoCourse{
+                constructor(){
+                    this.title = title
+                    this.description = description
+                    this.difficulty = difficulty    
+                    this.duration = duration
+                    this.url = url
+
+                }
+                courseDetails(){
+                    console.log(`this is course Detials .. its video and all `)
+                }
+            }
+            
+            class liveCourse{
+                constructor(){
+                    this.title = title
+                    this.description = description
+                    this.difficulty = difficulty  
+                    this.duration = duration  
+                    this.date$time = date$time
+                    this.link = link
+
+                }
+                courseDetails(){
+                    console.log(`this is course Detials .. its live and all `)
+                }
+            }
+            
+            class quizCourse{
+                constructor(){
+                    this.title = title
+                    this.description = description
+                    this.difficulty = difficulty    
+                    this.quAns= []
+                    
+
+                }
+                courseDetails(){
+                    console.log(`this is course Detials .. its quiz and all `)
+                }
+            }
+
+            
+
+        </script>
+    </body>
+</html>
