@@ -1,0 +1,42 @@
+<heml>
+    <head>
+        <title>
+            OOP7
+        </title>
+    </head>
+    <body>
+        <script>
+            class request{
+                constructor(ticketId,customeraName, description){
+                    this.ticketId = ticketId
+                    this.customerName = customerName
+                    this.description = description
+
+                }
+            }
+            class bugReport extends request{
+                constructor(){
+                    super(ticketId,customeraName, description)
+                    this.sevLevel = sevLevel
+                    this.affSys = affSys
+                    this.type = 'bugReport'
+                }
+            }
+            class requests{
+                constructor(){
+                    this.Requests = [{name:'chandra', type: 'featureRequest'},{name:'anup', type: 'bugReport'},{name:'xyz',type:'bugReport'},{name:'chandra', type: 'generalInquiry'}]
+                }
+                prioratize(){
+                    let reqPriority = {'bugReport' : 0,'featureRequest' : 1, 'generalInquiry': 2}
+                    let requestShort = this.Requests.sort((a,b)=>reqPriority[a.type]-reqPriority[b.type])
+                    this.Requests.forEach((value)=>{
+                        console.log(reqPriority[value.type])
+                    })
+                    console.log(requestShort)
+                }
+            }
+            reqtest = new requests()
+            reqtest.prioratize()
+        </script>
+    </body>
+</heml>

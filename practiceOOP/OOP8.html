@@ -1,0 +1,78 @@
+<heml>
+    <head>
+        <title>OOP8</title>
+    </head>
+    <body>
+        <script>
+            class employee{
+                constructor(eId, name,salary,department){
+                    this.eId = eId
+                    this.name = name
+                    this.salary = salary
+                    this.department = department
+                    this.tasks = []
+                }
+                task(taskMessage){
+
+                }
+            }
+            class manager extends employee{
+                constructor(eId, name,salary,department){
+                    super(eId, name,salary,department)
+                    this.post = 'manager'
+                    
+                }
+                
+            }
+            class developer extends employee{
+                constructor(eId, name,salary,department){
+                    super(eId, name,salary,department)
+                    this.post = 'developer'
+                }
+                
+            }
+            class intern extends employee{
+                constructor(eId, name,salary,department){
+                    super(eId, name,salary,department)
+                    this.post = 'intern'
+                }
+                
+            }
+            class company{
+                constructor(){
+                    this.employees = new Set()
+                }
+                add(employee){
+                    find = this.employees.find((value)=>value.eId ===employee.eId)
+                    if(find){
+                        console.log('employee already exists')
+                    }
+                    else{
+                        try{
+                            employees.push(employee)
+                            console.log('Employee added')
+
+                        }
+                        catch{
+                            console.log('Error pushing data')
+                        } 
+                    }
+                }
+                assignTask(eId, taskMessage){
+                    find = this.employees.find((value)=>value.eId ===eId)
+                    if(find){
+                        try{
+                            find.task(taskMessage)
+                        }
+                        catch{
+                            console.log('error calling task method')
+                        }
+                    }
+                }
+
+            }
+
+
+        </script>
+    </body>
+</heml>

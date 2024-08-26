@@ -11,17 +11,43 @@
                     this.ISBN = ISBN
                     this.canBorrow = true
                 }
+                borrowStatus(message){
+                    if(this.canBorrow){
+                        console.log(message)
+                    }
+                    else{
+                        console.log('Already borrowed')
+                    }
+                }
+
             }
             class regularBook extends Library{
                 constructor(title, author,ISBN){
                     super(title, author,ISBN)
                     this.borrowTime = 14
                 }
-                borrowStatus(){
-                    
+                borrowStatu(){
+                    this.borrowStatus('Can borrow for 14 days')
                 }
-
             }
+            class referenceBook extends Library{
+                constructor(title, author,ISBN){
+                    super(title, author,ISBN)
+                    this.borrowTime = 30
+                }
+                borrowStatus=this.borrowStatus('Can borrow for 30 days')
+            }
+            class eBook extends Library{
+                constructor(title,author,ISBN){
+                    super(title, author,ISBN)
+                    this.borrowTime = false
+                }
+                borrowStatus=this.borrowStatus('Cant borrow ... can only read within library')
+            }
+            rgbook = new regularBook('chandra','chandra','abc')
+            console.log(rgbook)
+            rgbook.sayHello()
+           
         </script>
     </body>
-</html>
+</html> 
