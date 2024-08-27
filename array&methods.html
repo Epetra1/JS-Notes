@@ -44,9 +44,22 @@
             added = array1.concat(array2)
             console.log(added)
 
+            ///SPLICE 
+            function Splice(){
+                are = ['chanda','chaule', 'syau' , 'srewd']
+                are.splice(1,1,'glitch') /// NOTE  syntax is : array.splice(Index, number of items to be deleted, replacing element in that index)
+                are.splice(3,0,'chaule') // this will not remove any element since number of items to be deleted is zero
+                are.splice(3,1) // this will just remove item in that index
+            }
 
-
-
+            //FIND AND FINDINDEX
+            function FindIndex(){
+                are = ['hello','bye','goodbye','done','love']
+                arefind = are.findIndex(value =>value==='love') //basically his will return the index of found value 
+                console.log(arefind)
+            }
+            FindIndex()
+            
         </script>
     </body>
 </html>

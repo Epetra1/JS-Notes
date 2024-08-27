@@ -10,46 +10,56 @@
                     this.name = name
                     this.salary = salary
                     this.department = department
+                    this.position = 'Employee' //default
                     this.tasks = []
                 }
                 task(taskMessage){
+                    this.tasks.push(taskMessage)
 
                 }
             }
             class manager extends employee{
                 constructor(eId, name,salary,department){
                     super(eId, name,salary,department)
-                    this.post = 'manager'
+                    this.position = 'manager'
                     
+                }
+                detaile(){
+                    console.log(`${eId}'s detail`)
                 }
                 
             }
             class developer extends employee{
                 constructor(eId, name,salary,department){
                     super(eId, name,salary,department)
-                    this.post = 'developer'
+                    this.position = 'developer'
                 }
-                
+                detaile(){
+                    console.log(`${eId}'s detail`)
+                }
             }
             class intern extends employee{
                 constructor(eId, name,salary,department){
                     super(eId, name,salary,department)
-                    this.post = 'intern'
+                    this.position = 'intern'
+                }
+                detaile(){
+                    console.log(`${eId}'s detail`)
                 }
                 
             }
             class company{
                 constructor(){
-                    this.employees = new Set()
+                    this.employees = []
                 }
                 add(employee){
-                    find = this.employees.find((value)=>value.eId ===employee.eId)
+                    find = [...this.employees].find((value)=>value.eId ===employee.eId) //we use spread opperator since Set() is not an arrya and doenot has find method 
                     if(find){
                         console.log('employee already exists')
                     }
                     else{
                         try{
-                            employees.push(employee)
+                            this.employees.push(employee) // we are not using Push since employees is not an array its Set()
                             console.log('Employee added')
 
                         }
@@ -69,8 +79,55 @@
                         }
                     }
                 }
+                promotion(eId, position){
+                    //find(value,index) if eId == value.eId .. return ..index 
+                    console.log(`eid is .............. ${eId}`)
+                    const index = [...this.employees].findIndex(value => value.eId === eId)
+                    console.log(index)
+                    let Employee = [...this.employees][index]
+                    
+                    let newPosition
+                    if(position ==='manager'){
+                        newPosition = new manager(Employee.eId, Employee.name, Employee.salary, Employee.department)
+                    }
+                    if(position ==='developer'){
+                        newPosition = new developer(Employee.eId, Employee.name, Employee.salary, Employee.department)
+                    }
+                    if(position ==='employee'){
+                        newPosition = new employee(Employee.eId, Employee.name, Employee.salary, Employee.department)
+                    }
+                    this.employees.splice(index,1,newPosition)
+                    console.log(`Promoted from ${Employee.position} to ${newPosition.position}`)
+                }
+                detail(department){
+                    filter = employees.filter((value)=>{
+                        return value.department =department
+                    })
+                    filter.forEach((element)=>{
+                        element.detail()
+                    })
+
+                }
+                
 
             }
+            manage1 = new manager(1,'Chandra',2000,'business')
+            manage2 = new manager(2,'Anup',3000,'IT')
+            intern1 = new intern(3,'dalla',200,'business') 
+            intern2 = new intern(4,'supreme',1000,'IT') 
+            developer1 = new developer(5,'utsah',2000,'IT') 
+            console.log(manage1)
+
+            Company = new company()
+
+            Company.add(manage1)
+            Company.add(manage2)
+            Company.add(intern1)
+            Company.add(intern2)
+            Company.add(developer1)
+            Company.promotion(3,'developer')
+
+
 
 
         </script>
