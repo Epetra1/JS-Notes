@@ -1,0 +1,142 @@
+<html>
+    <head>
+        <title>
+            OOP
+        </title>
+
+    </head>
+    <body>
+        <script>
+            function reverseString(){
+                string = `let's go my bud`
+            let abc = string.split(' ')
+            let revers = []
+        
+            abc.map((value)=>{
+                let o = [...value].reverse()
+                revers = revers.concat(o)
+                console.log(revers)
+                revers.push(' ')
+
+            })
+            let result  = revers.join('')
+
+            
+            console.log(result)
+
+            }
+            function intersection(){
+                array1 = [1,3,4,5]
+                 array2 = [3,5,6]
+                let finalArray = array1.filter(value => array2.includes(value))
+                // array1.forEach((value)=>{
+                //     array2.forEach((element)=>{
+                //         if(value === element){
+                //             finalArray.push(value)
+                //         }
+
+                //     })
+                // })
+                
+
+
+                console.log(finalArray)
+
+            }
+            intersection()
+            //Question 3
+            function ToF(){
+                let array = ['(',')','{','}','[',']']
+                let array2 = ['{',']']
+                let filter = []
+                array2.forEach((value) => {
+                    filter.push(array.includes(value)) })
+                console.log(filter)
+                
+                if(filter.includes(false)){
+                    return false
+                }
+                else{
+                    return true
+                }
+
+            }
+            console.log(ToF())
+
+            //question 4 
+            function Q4(){
+                string = 'aabbcc'
+                output = new Set(string)
+                console.log(output)
+            }
+            Q4()
+            //question 5 
+            function Q5(){
+                let num = '121'
+                let reverse = [...num].reverse()
+                if(reverse.join('')===num){
+                    console.log(true)
+                }
+                else{
+                    console.log(false)
+                }
+            }
+            Q5()
+            //question 6
+//             let nums
+//             function Q6(){
+//                 nums = [1,2,0,4]
+//                 console.log(nums)
+//                 nums.sort((a,b)=>a-b)
+//                 let previousNum = nums[0]
+//                 nums.forEach((value,index)=>{
+
+//                     if(index > 0){
+//                         if(!Number(previousNum)+1 ===Number(value)){
+//                             console.log('hello')
+//                             return (value)
+                            
+//                         }
+
+
+// }
+// previousNum = value
+
+//                 }
+// )
+
+//             }
+           
+            
+//             functionCall = Q6()
+            
+//             if(functionCall){
+//                 console.log(functionCall)
+//             }
+//             else{
+//                 console.log(Number(nums.slice(-1))+1)
+//             }
+
+///Question 7
+
+function Q7(){
+    array =  [[1, 3], [2, 6], [8, 10], [15, 18]]
+    array.forEach((value,index)=>{
+        if(index<(array.length-1)&&value[1]>=(array[index+1][0]-1)){
+            
+  newArrya = [value[0],array[index+1][1]>value[1]?array[index+1][1]:value[1]]
+            array.splice(index,2,newArrya)
+        }
+        console.log(array[index+1])
+    })
+    console.log(array)
+}
+Q7()
+
+
+
+        </script>
+        
+
+    </body>
+</html>
