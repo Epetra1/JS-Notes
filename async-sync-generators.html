@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script>
+            function* abc(){
+                for( let i = 1;i<5;i++){
+                    yield i 
+                }
+            }
+            // VIMP there are 3 new prototypes attached to generator function ie (next(),return(),throw())
+           ae = abc()
+           console.log(ae)
+           console.log(ae.next())
+           console.log(ae.next())
+           console.log(ae.return('we used return method'))
+           console.log(ae.next())
+           //INFINITE FEBONENCY SERIES GENERATOR
+           function* fibonacci(){
+            let [a,b] = [0,1];
+            
+            while(true){
+                yield a;
+                [a,b] = [b,a+b];
+            }
+           }
+           fib = fibonacci()
+           
+            console.log(fib.next())
+            console.log(fib.next())
+            console.log(fib.next())
+            console.log(fib.next())
+            console.log(fib.next())
+
+            ///PRIME NUMBER GENERATOR 
+            function* primeNum(){
+                yield 2;
+                for(i = 3; true ;i+=2){
+                    
+                    let isPrime = true
+                    for( j = 3; j<=Math.sqrt(i); j+=2){
+                        if(i%j ===0){
+                            isPrime = false
+                        }
+                    }   
+                    if(isPrime){
+                        yield i
+                    }
+                }
+            }
+            console.log('prime number ..............')
+            primeNumber = primeNum()
+            console.log(primeNumber.next())
+            console.log(primeNumber.next())
+            console.log(primeNumber.next())
+            console.log(primeNumber.next())
+            console.log(primeNumber.next())
+
+            //PERFECT NUMBER GENERATOR 
+            function* PerfectNum(){
+
+                for (i=2;true;i++){
+                    let sum =1
+                    for(j=2;j<=Math.sqrt(i);j++){
+                        if (i%j === 0){
+                            sum += j
+                            if(j!==i/j){
+                            sum +=i/j
+                        }
+                        }
+
+                    }
+                    if(sum ===i){
+                        yield i
+                    }
+                }
+            }
+            console.log('perfect number ........................')
+            Perfect = PerfectNum()
+            console.log(Perfect.next())
+            console.log(Perfect.next())
+            console.log(Perfect.next())
+
+            
+           
+        </script>
+    </body>
+</html>

@@ -16,11 +16,20 @@
             }
             arrayFrom()
             //ArrayFromAsync
-            function fromAsync(){
-                async function data(){
-                    
+            async function* num(){
+                for(i = 1; i<=20; i++){
+                    await new Promise(resolve=>setTimeout(resolve,100))
+                    yield i; 
                 }
+               
             }
+            (async ()=> {
+                numb = await Array.fromAsync(num())
+                console.log(numb)
+            })()
+
+            
+
 
         </script>
     </body>
