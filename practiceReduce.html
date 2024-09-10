@@ -1,0 +1,23 @@
+<html></html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <script>
+            //EXAMPLE 1
+            const pipe = 
+            (...functions)=>
+            (initalValue)=>
+            functions.reduce((acc,fn)=>fn(acc), initalValue)
+            const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+            const reverse = (str) => str.split("").reverse().join("");
+            const final = (str) => str+'!';
+            let abc = pipe(reverse,capitalize,final)
+            console.log(abc('hello'))
+
+
+        </script>
+    </body>
+</html>
