@@ -1,0 +1,39 @@
+<html>
+    <head>
+<title>
+    Operator ...
+</title>
+    </head>
+    <body>
+        <script>
+
+            // IMP There are 2 Types of Operator ""
+            //SPREAD OPERATOR 
+            let array = [1,3,4,5,6]
+            let newArray = [...array] // IMP basically '...array' seperates element of that array to individual elements so when you wrap it up by Big bracket .. it becomes new array
+            console.log(Math.max(...array))// its like writing Math.max(1,2,3,4,5)
+            console.log(...array)
+
+            //IMP NOTE REST OPERATOR
+            let object = {'fname':'chandra','mname': 'shekhar' , 'lname' : 'dhungana'}
+            const {mname, ...remaning} = object
+            console.log(typeof remaning, remaning) // so basically its an object and it will have this value {fname: 'chandra', lname: 'dhungana'}
+
+            //Rest operatior for array 
+            function sum(first,...rest){
+                console.log(first)
+                return (first + rest.reduce((acc,val)=>acc+val,0))
+            }
+            console.log(sum(...array))
+            let obj3 = {...object}
+            console.log(obj3)
+            
+
+            
+
+            
+
+        </script>
+    </body>
+
+</html>
