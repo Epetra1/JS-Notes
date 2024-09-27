@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>Array flat</title>
+    </head>
+    <body>
+        <script>
+            function Flat(){
+                array = [1,2,[3,4],5]
+                array.flat() // [1,2,3,4,5]
+                array2 = [1,2,[3,[4]],5]
+                array2.flat()//[1,2,3,[4],5]
+                array2.flat(2)// [1,2,3,4,5]
+                array2.flat(infinite)//// [1,2,3,4,5]
+
+            }
+            function flatMap(){
+                let array = [1,2,[3,4],5]
+                let abc = array.flatMap((value,index)=>{
+                    console.log(value) //isnt falttened here because it has not been processed yet ... its just passing value to every iteration
+                    console.log(index)
+                    return value // even here value is not falttened but when the function returns all its values then it flattens that value to flattened array
+                })
+                console.log(abc) //and this prints flatteend array
+                     
+            }
+            flatMap()
+            function PracticeFlatMap(){
+                const products = [
+                        {
+                            id: 1,
+                            name: "Laptop",
+                            categories: [
+                            { id: 101, name: "Electronics" },
+                            { id: 102, name: "Computers" }
+                            ],
+                            reviews: [
+                            { id: 201, text: "Great laptop!" },
+                            { id: 202, text: "Battery life could be better." }
+                            ]
+                        },
+                        {
+                            id: 2,
+                            name: "Phone",
+                            categories: [
+                            { id: 101, name: "Electronics" },
+                            { id: 103, name: "Mobile Devices" }
+                            ],
+                            reviews: [
+                            { id: 203, text: "Excellent phone!" }
+                            ]
+                        }
+                        ];
+
+                
+
+                let abc = products.flatMap((value)=>{
+                    value.categories.forEach(val=>{
+                        val.productName=value.name;
+                        val.productId=value.id}
+                    )
+                    
+                    return [...value.categories, ...value.reviews]
+                    
+                }) // you see here outbut will be [[array.... ]] if dont use flatmap and clatmap falttens it tio [array...] 
+
+                /*better approach is 
+                let abc = products.flatMap((product) => {
+  return [
+    ...product.categories.map(category => ({
+      productId: product.id,
+      productName: product.name,
+      categoryId: category.id,
+      categoryName: category.name
+    })),
+    ...product.reviews.map(review => ({
+      productId: product.id,
+      productName: product.name,
+      reviewId: review.id,
+      reviewText: review.text
+    }))
+  ];
+});
+
+                
+                */
+                console.log(abc)
+
+            }
+            PracticeFlatMap();
+
+            //IMP CONCLUSION Basically flatmap is used to flatten nested arrays in datas and stuff .. data namipulation heyyy 
+            
+
+
+            
+        </script>
+    </body>
+</html>
